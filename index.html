@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Access Site</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        #search { width: 100%; padding: 10px; margin-bottom: 20px; }
+        .book { margin-bottom: 10px; }
+        .book a { text-decoration: none; color: blue; }
+        .book a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h1>Access Books</h1>
+    <input type="text" id="search" placeholder="Search for a book...">
+    <div id="book-list">
+        <!-- Sample books; replace with your own -->
+        <div class="book" data-title="Pride and Prejudice">
+            <a href="https://www.gutenberg.org/files/1342/1342-h/1342-h.htm" target="_blank">Pride and Prejudice by Jane Austen</a>
+        </div>
+        <div class="book" data-title="1984">
+            <a href="https://www.gutenberg.org/files/61262/61262-h/61262-h.htm" target="_blank">1984 by George Orwell</a>
+        </div>
+        <div class="book" data-title="The Great Gatsby">
+            <a href="https://www.gutenberg.org/files/219/219-h/219-h.htm" target="_blank">The Great Gatsby by F. Scott Fitzgerald</a>
+        </div>
+<div class="book" data-title="English Guide Class 10">
+            <a href="https://nepaskool.com/class-10-english-guide-nepal/"target="_blank">English Guide Class 10</a>
+        </div>
+<div class="book" data-title="Nepali Guide Class 10">
+            <a href="https://www.gaurab123.com.np/p/class-10-nepali-guide-2080.html"target="_blank">Nepali Guide Class 10</a>
+        </div>
+        <!-- Add more books here -->
+    </div>
+
+    <script>
+        const searchInput = document.getElementById('search');
+        const bookList = document.getElementById('book-list');
+        const books = bookList.querySelectorAll('.book');
+
+        searchInput.addEventListener('input', function() {
+            const query = this.value.toLowerCase();
+            books.forEach(book => {
+                const title = book.getAttribute('data-title').toLowerCase();
+                book.style.display = title.includes(query) ? 'block' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>
