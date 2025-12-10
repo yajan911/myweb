@@ -4,12 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Access Site</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        #search { width: 100%; padding: 10px; margin-bottom: 20px; }
-        .book { margin-bottom: 10px; }
-        .book a { text-decoration: none; color: blue; }
-        .book a:hover { text-decoration: underline; }
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1200&h=800&fit=crop') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            min-height: 100vh;
+            position: relative;
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.8);
+            z-index: -1;
+        }
+        h1 {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 30px;
+            font-weight: 500;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        #search {
+            width: 100%;
+            max-width: 400px;
+            padding: 12px 20px;
+            margin: 0 auto 30px;
+            display: block;
+            border: none;
+            border-radius: 25px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            font-size: 16px;
+            transition: box-shadow 0.3s ease;
+        }
+        #search:focus {
+            outline: none;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+        #book-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .book {
+            background: rgba(255, 255, 255, 0.95);
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            align-items: center;
+        }
+        .book:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .initials {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            background: #ff6b6b;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 500;
+            margin-right: 15px;
+        }
+        .book a {
+            text-decoration: none;
+            color: #ff6b6b;
+            font-weight: 400;
+            font-size: 18px;
+        }
+        .book a:hover {
+            color: #4ecdc4;
+        }
     </style>
 </head>
 <body>
@@ -18,22 +101,28 @@
     <div id="book-list">
         <!-- Sample books; replace with your own -->
         <div class="book" data-title="Pride and Prejudice">
+            <div class="initials">PP</div>
             <a href="https://www.gutenberg.org/files/1342/1342-h/1342-h.htm" target="_blank">Pride and Prejudice by Jane Austen</a>
         </div>
         <div class="book" data-title="1984">
+            <div class="initials">19</div>
             <a href="https://www.gutenberg.org/files/61262/61262-h/61262-h.htm" target="_blank">1984 by George Orwell</a>
         </div>
         <div class="book" data-title="The Great Gatsby">
+            <div class="initials">TG</div>
             <a href="https://www.gutenberg.org/files/219/219-h/219-h.htm" target="_blank">The Great Gatsby by F. Scott Fitzgerald</a>
         </div>
-<div class="book" data-title="English Guide Class 10">
-            <a href="https://nepaskool.com/class-10-english-guide-nepal/"target="_blank">English Guide Class 10</a>
+        <div class="book" data-title="English Guide Class 10">
+            <div class="initials">EG</div>
+            <a href="https://nepaskool.com/class-10-english-guide-nepal/" target="_blank">English Guide Class 10</a>
         </div>
-<div class="book" data-title="Nepali Guide Class 10">
-            <a href="https://www.gaurab123.com.np/p/class-10-nepali-guide-2080.html"target="_blank">Nepali Guide Class 10</a>
+        <div class="book" data-title="Nepali Guide Class 10">
+            <div class="initials">NG</div>
+            <a href="https://www.gaurab123.com.np/p/class-10-nepali-guide-2080.html" target="_blank">Nepali Guide Class 10</a>
         </div>
         <div class="book" data-title="CEE Entrance preparation">
-            <a href="https://cavestudy.com/"target="_blank">CEE Entrance preparation</a>
+            <div class="initials">CE</div>
+            <a href="https://cavestudy.com/" target="_blank">CEE Entrance preparation</a>
         </div>
         <!-- Add more books here -->
     </div>
@@ -53,4 +142,3 @@
     </script>
 </body>
 </html>
-
