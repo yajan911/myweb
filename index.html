@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Access Site</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 20px;
-            background: url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1200&h=800&fit=crop') no-repeat center center fixed;
-            background-size: cover;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             color: #333;
             min-height: 100vh;
             position: relative;
@@ -23,75 +22,93 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(255, 255, 255, 0.8);
+            background: url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1200&h=800&fit=crop') no-repeat center center fixed;
+            background-size: cover;
+            opacity: 0.1;
             z-index: -1;
         }
         h1 {
             text-align: center;
-            color: #fff;
+            color: #2c3e50;
             margin-bottom: 30px;
-            font-weight: 500;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-            background: rgba(0, 0, 0, 0.5);
-            padding: 10px;
-            border-radius: 10px;
-            display: inline-block;
+            font-weight: 700;
+            font-size: 2.5em;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         #search {
             width: 100%;
-            max-width: 400px;
-            padding: 12px 20px;
-            margin: 0 auto 30px;
+            max-width: 500px;
+            padding: 15px 20px;
+            margin: 0 auto 40px;
             display: block;
-            border: none;
-            border-radius: 25px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            background: #fff;
+            color: #333;
             font-size: 16px;
-            transition: box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
         }
         #search:focus {
             outline: none;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            border-color: #3498db;
+        }
+        #search::placeholder {
+            color: #999;
         }
         #book-list {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
         }
         .book {
-            background: rgba(255, 255, 255, 0.95);
-            margin-bottom: 15px;
-            padding: 15px;
+            background: #fff;
+            padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
             display: flex;
             align-items: center;
+            border-left: 5px solid #3498db;
         }
         .book:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
         }
         .initials {
-            width: 80px;
-            height: 80px;
-            border-radius: 8px;
-            background: #ff6b6b;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #3498db, #2ecc71);
             color: #fff;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 500;
             margin-right: 15px;
+            flex-shrink: 0;
         }
         .book a {
             text-decoration: none;
-            color: #ff6b6b;
-            font-weight: 400;
-            font-size: 18px;
+            color: #2c3e50;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s ease;
         }
         .book a:hover {
-            color: #4ecdc4;
+            color: #3498db;
+        }
+        @media (max-width: 768px) {
+            #book-list {
+                grid-template-columns: 1fr;
+            }
+            h1 {
+                font-size: 2em;
+            }
         }
     </style>
 </head>
